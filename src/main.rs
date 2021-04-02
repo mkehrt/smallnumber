@@ -3,8 +3,8 @@
 fn main() {
     let mut i: u64 = 0;
     loop {
-        i += (1 as u64);
-        if i % (1_000_000_000 as u64) == 0 {
+        i += 1 as u64;
+        if i % (1_000_000_000_000 as u64) == 0 {
             println!("{}", i);
         }
         // Find the number of numbers smaller than i.
