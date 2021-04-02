@@ -1,17 +1,17 @@
-use rug::Integer;
+// Ugh I was going to use bigints but looks like I will not need to.
 
 fn main() {
-    let mut i = Integer::from(0);
+    let mut i: u64 = 0;
     loop {
-        i += 1;
-        if Integer::from(&i % 1_000_000) == 0 {
+        i += (1 as u64);
+        if i % (1_000_000_000 as u64) == 0 {
             println!("{}", i);
         }
         // Find the number of numbers smaller than i.
-        let num_less_than_i = Integer::from(&i - 1);
-        // See if there are at least as many numbers above i than 1 + the number below.
-        let min_num_more_than_i =
-            Integer::from(&i + Integer::from(&num_less_than_i + Integer::from(1 - &i)));
+        let num_less_than_i: u64 = &i - (1 as u64);
+        // See if there are at least as many numbers above i than 1 + the
+        // number below.
+        let min_num_more_than_i: u64 = i + num_less_than_i + (1 as u64) - i;
         if min_num_more_than_i <= num_less_than_i {
             println!("FOUND LARGE NUMBER: {}", i);
         }
